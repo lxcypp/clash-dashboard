@@ -34,12 +34,17 @@ export function Group (props: GroupProps) {
     }
 
     const errSet = useMemo(() => {
-        const set = new Set<string>()
+        const set = new Map<string, number>()
         for (const proxy of config.all) {
             const history = proxyMap.get(proxy)?.history
-            if (history?.length && history.slice(-1)[0].delay === 0) {
-                set.add(proxy)
+            // console.log(proxy)
+            // console.log(history)
+            if (history?.length) {
+                set.set(proxy, history.slice(-1)[0].delay)
             }
+            // if (history?.length && history.slice(-1)[0].delay === 0) {
+            //     set.add(proxy)
+            // }
         }
 
         return set

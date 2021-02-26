@@ -19,7 +19,7 @@ $height: 22px;
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid $color-primary-dark;
+        border: 3px solid $color-primary-dark;
         color: $color-primary-darken;
         height: $height;
         border-radius: $height / 2;
@@ -33,14 +33,52 @@ $height: 22px;
         cursor: pointer;
     }
 
+    li.ok {
+        // color: #fff;
+        // background-color: $color-green;
+        border-color: $color-green;
+    }
+    li.tags-selected.ok {
+        background: linear-gradient(135deg, $color-primary-dark, $color-green);
+        border: none;
+        height: $height + 2px;
+        padding: 0 7px;
+    }
+
+
+    li.warning {
+        // color: #fff;
+        // background-color: $color-orange;
+        border-color: $color-orange;
+    }
+    li.tags-selected.warning {
+        background: linear-gradient(135deg, $color-primary-dark, $color-orange);
+        border: none;
+        height: $height + 2px;
+        padding: 0 7px;
+    }
+
+
+    li.danger {
+        // color: #fff;
+        // background-color: $color-red;
+        border-color: $color-red;
+    }
+    li.tags-selected.danger {
+        background: linear-gradient(135deg, $color-primary-dark, $color-red);
+        border: none;
+        height: $height + 2px;
+        padding: 0 7px;
+    }
+
     li.error {
         color: #fff;
-        background-color: $color-red;
-        border-color: $color-red;
+        background-color: $color-gray;
+        border-color: $color-gray;
     }
 
     li.tags-selected.error {
-        background: linear-gradient(135deg, $color-primary-dark, $color-red);
+        background: linear-gradient(135deg, $color-primary-darken, $color-gray);
         border: none;
         height: $height + 2px;
         padding: 0 7px;

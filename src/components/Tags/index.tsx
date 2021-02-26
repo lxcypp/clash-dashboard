@@ -8,7 +8,7 @@ import './style.scss'
 interface TagsProps extends BaseComponentProps {
     data: string[]
     onClick: (name: string) => void
-    errSet?: Set<string>
+    errSet?: Map<string, number>
     select: string
     rowHeight: number
     canClick: boolean
@@ -34,9 +34,10 @@ export function Tags (props: TagsProps) {
         setExpand(!expand)
     }
 
+    // console.log(props)
     const tags = data
         .map(t => {
-            const tagClass = classnames({ 'tags-selected': select === t, 'can-click': canClick, error: errSet?.has(t) })
+            const tagClass = classnames({ 'tags-selected': select === t, 'can-click': canClick, error: errSet?.has(t) && errSet?.get(t)===0, ok: errSet?.has(t) && errSet?.get(t)<260, warning: errSet?.has(t) && errSet?.get(t)>=260 && errSet?.get(t)<600, danger: errSet?.has(t) && errSet?.get(t)>=600 })
             return (
                 <li className={tagClass} key={t} onClick={() => handleClick(t)}>
                     { t }
